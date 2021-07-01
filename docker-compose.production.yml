@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: compose/production/Dockerfile
+    image: auth_production
+    container_name: auth_production
+    ports:
+      - 5000:5000
+    volumes:
+      - ./auth:/app
+    env_file:
+      - ./auth/.env
